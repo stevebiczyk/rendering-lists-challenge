@@ -17,7 +17,10 @@ class Content extends Component {
                 <div className={css.SearchResults}>
                     {savedPosts.map(post => (
                         <div key={post.id} className={css.SearchItem}>
-                            Individual Post
+                            <p>Title: {post.title}</p>
+                            <p>Artist: {post.name}</p>
+                            <img src={post.image} />
+                            <p>Description: {post.description}</p>
                         </div>
                     ))}
                 </div>
