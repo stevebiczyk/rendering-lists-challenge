@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import css from "./css/Content.module.css";
 import { savedPosts } from '../posts.json';
+import PostItem from './PostItem';
 
 class Content extends Component {
     constructor(props) {
@@ -17,10 +18,11 @@ class Content extends Component {
                 <div className={css.SearchResults}>
                     {savedPosts.map(post => (
                         <div key={post.id} className={css.SearchItem}>
-                            <p>Title: {post.title}</p>
+                            <PostItem savedPosts={savedPosts} />
+                            {/* <p>Title: {post.title}</p>
                             <p>Artist: {post.name}</p>
                             <img src={post.image} />
-                            <p>Description: {post.description}</p>
+                            <p>Description: {post.description}</p> */}
                         </div>
                     ))}
                 </div>
