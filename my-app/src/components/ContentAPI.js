@@ -9,9 +9,11 @@ import Loader from './Loader';
 export class Content extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             isLoaded: false,
             posts: [],
+            savedPosts: [],
         };
     }
     componentDidMount() {
@@ -28,11 +30,11 @@ export class Content extends Component {
             savedPosts: fetchedPosts,
         })
     }
-    
+
     handleChange = (event) => {
         const name = event.target.value.toLowerCase()
-        const filteredPosts = savedPosts.filter(post => {
-            return post.name.toLowerCase().includes(name)
+        const filteredPosts = this.savedPosts.filter(post => {
+            return post.user.toLowerCase().includes(name)
         })
 
         this.setState({
